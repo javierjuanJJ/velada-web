@@ -8,3 +8,10 @@
   font-display: swap;
 }
 /* Se definen pesos adicionales (ej: 300 para 'light', 600 para 'bold') [11] */
+
+/* Clase de utilidad CSS 'mask-fade-bottom' [22] */
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, 
+                              black 80%, 
+                              transparent 100%); 
+}

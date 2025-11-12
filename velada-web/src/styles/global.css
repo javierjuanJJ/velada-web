@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Definición de la fuente Anisete [10, 11] */
+@font-face {
+  font-family: 'anisete';
+  src: url('/public/fonts/anisete-medium.woff2') format('woff2');
+  font-weight: 400; /* Medium */
+  font-display: swap;
+}
+/* Se definen pesos adicionales (ej: 300 para 'light', 600 para 'bold') [11] */

@@ -1,3 +1,48 @@
+---
+// Dentro de Giro.astro (Script escuchando el evento 'boxer-car-hover') [46, 48]
+let currentFighterID = null;
+const landing = document.querySelector('.landing'); 
+
+document.addEventListener('boxer-car-hover', (event) => {
+    const id = event.detail.id;
+
+    if (currentFighterID === id) return; // Si es el mismo, no hacemos nada [47]
+
+    // 1. Ocultar luchador anterior (si existe) [47]
+    if (currentFighterID) {
+        // Lógica para añadir hidden a .giro-text y .giro-image del luchador anterior [49]
+        // ...
+    }
+    
+    // 2. Ocultar la landing [47, 50]
+    landing.classList.add('hidden'); 
+
+    // 3. Mostrar el nuevo luchador y actualizar ID [47]
+    // Lógica para remover hidden de .giro-text y .giro-image del luchador actual [49]
+    currentFighterID = id;
+});
+
+// Dentro de Giro.astro (Escuchando 'boxer-car-exit') [55]
+let timeoutID = null;
+
+document.addEventListener('boxer-car-exit', () => {
+    // Si ya hay un timer en curso (porque entró a otra tarjeta), lo limpiamos [55]
+    if (timeoutID) clearTimeout(timeoutID);
+
+    // Esperar 300-500ms antes de mostrar la landing [55]
+    timeoutID = setTimeout(() => {
+        // 1. Mostrar la landing [39]
+        landing.classList.remove('hidden');
+        
+        // 2. Ocultar el luchador actual [39]
+        // ...
+        
+        // 3. Resetear el ID actual [56]
+        currentFighterID = null; 
+    }, 500); 
+});
+---
+
 <!-- Container principal del Giro [23] -->
 <div class="relative overflow-hidden min-h-screen">
     <!-- Imagen de Fondo con el efecto de máscara [22] -->

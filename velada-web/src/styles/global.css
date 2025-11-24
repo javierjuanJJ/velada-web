@@ -4,14 +4,36 @@
 @font-face {
   font-family: 'anisete';
   src: url('/public/fonts/anisete-medium.woff2') format('woff2');
-  font-weight: 400; /* Medium */
+  font-weight: 400;
+  /* Medium */
   font-display: swap;
 }
+
 /* Se definen pesos adicionales (ej: 300 para 'light', 600 para 'bold') [11] */
 
 /* Clase de utilidad CSS 'mask-fade-bottom' [22] */
 .mask-fade-bottom {
-  mask-image: linear-gradient(to bottom, 
-                              black 80%, 
-                              transparent 100%); 
+  mask-image: linear-gradient(to bottom,
+      black 80%,
+      transparent 100%);
+}
+
+@keyframes header-blur-scroll {
+  0% {
+    backdrop-filter: blur(0);
+    background: transparent;
+  }
+
+  100% {
+    backdrop-filter: blur(8px);
+    background: rgba(color_oscuro, 0.8);
+  }
+}
+
+header {
+  animation-timeline: scroll();
+  /* Define que la animación se sincroniza con el scroll [42] */
+  animation-name: header-blur-scroll;
+  animation-range: 0px 250px;
+  /* Rango de animación de 0 a 250 píxeles de scroll [42] */
 }

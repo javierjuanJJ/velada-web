@@ -1,0 +1,10 @@
+---
+const { id } = Astro.params; 
+const fighter = fighters.find(f => f.id === id); 
+document.addEventListener('astro:page-load', () => {
+    // Código de inicialización de JavaScript (ej. listeners de boxer cards) [54]
+});
+---
+<img src={fighter.bigImage} transition:name={`image-${id}`} />
+
+

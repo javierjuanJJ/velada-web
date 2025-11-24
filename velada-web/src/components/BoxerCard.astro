@@ -1,0 +1,21 @@
+---
+// Dentro de BoxerCard.astro (Script) [34, 38]
+const card = document.querySelector('.boxer-car'); 
+
+card.addEventListener('mouseenter', () => {
+    const id = card.getAttribute('data-id');
+    // Dispara un evento personalizado con el ID del luchador [34]
+    window.dispatchEvent(new CustomEvent('boxer-car-hover', { detail: { id } }));
+});
+
+card.addEventListener('mouseleave', () => {
+    // Dispara un evento de salida [39]
+    window.dispatchEvent(new CustomEvent('boxer-car-exit'));
+});
+---
+<img src="" transition:name={`image-${fighter.id}`} />
+
+<!-- Imagen del Hero (Giro) con alta prioridad [58] -->
+<img src="/images/giro.png" fetchpriority="high" />
+<!-- Imágenes de los luchadores con baja prioridad [59] -->
+<img src="" decoding="async" fetchpriority="low" /> 
